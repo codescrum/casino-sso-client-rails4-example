@@ -3,22 +3,12 @@
     .cover-container
       .masthead.clearfix
         .inner
-          %h3.masthead-brand= t(".generic")
+          %h3.masthead-brand= 'SSO Rails 4 client example application'
           %ul.nav.masthead-nav
-            %li.active
-              %a{:href => "#"}= t(".home")
-            %li
-              %a{:href => "#"}= t(".about_us")
-            %li
-              %a{:href => "#"}= t(".contact")
+            - if user_signed_in?
+              %li.active
+                %a{:href => "dashboard"}= 'Dashboard'
       .inner.cover
-        %h1.cover-heading= t(".demo_application")
-        %p.lead= t(".demo_app_description")
+        %h1.cover-heading= 'SSO Rails 4 client example application'
         %p.lead
-          %a.btn.btn-lg.btn-primary{:href => new_user_session_path}= t(".sign_in")
-      .mastfoot
-        .inner
-          %p
-            = t(".all_rights_reserved")
-            = succeed "," do
-              %a{:href => "#"}= t(".generic")
+          %a.btn.btn-primary.sign-in-sso{:href => new_user_session_path}= 'Login to SSO Service'
