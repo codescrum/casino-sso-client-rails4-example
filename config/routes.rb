@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  devise_for :users, skip: [:sessions], controllers: { cas_sessions: 'sso_cas' }
+
+  devise_scope :user do
+    get "sign_in", to: "devise/cas_sessions#new"
+    delete "sign_out", to: "devise/cas_sessions#destroy"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
