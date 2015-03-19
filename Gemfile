@@ -35,6 +35,11 @@ gem 'mongoid_search'
 gem 'will_paginate_mongoid'
 gem 'cancancan', '~> 1.9'
 
+# Use redis to store Rails Sessions
+gem 'redis-rails'
+# For CAS authentication with SSO example server
+gem 'devise_cas_authenticatable', git: 'https://github.com/jpamaya/devise_cas_authenticatable'
+
 
 group :development do
   gem 'haml-rails' # only in dev, because haml-rails adds the generators
