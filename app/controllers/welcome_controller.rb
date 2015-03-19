@@ -1,4 +1,7 @@
 class WelcomeController < ApplicationController
+
+  skip_before_filter :redirect_to_sign_in
+
   def index
   end
 
