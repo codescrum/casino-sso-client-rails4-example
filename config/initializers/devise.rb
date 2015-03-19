@@ -21,6 +21,15 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/mongoid'
 
+  # ==> Configuration for SSO server authentication
+  config.cas_base_url = "http://localhost:4000"
+  config.cas_create_user = false
+  config.cas_username_column = 'email'
+  config.cas_destination_url = "http://localhost:5000"
+  config.cas_logout_url_param = 'destination'
+  config.cas_destination_logout_param_name = 'service'
+  config.cas_enable_single_sign_out = true
+
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
